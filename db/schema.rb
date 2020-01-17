@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(version: 2020_01_17_084651) do
     t.string "title"
     t.string "body"
     t.float "confidence"
-    t.bigint "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_records_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,5 +32,4 @@ ActiveRecord::Schema.define(version: 2020_01_17_084651) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "records", "users"
 end
