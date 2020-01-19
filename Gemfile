@@ -19,6 +19,12 @@ gem 'puma', '~> 4.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Cloudmersive OCR API Client
+gem 'cloudmersive-ocr-api-client', '~> 1.3.4'
+
+# to keep the API token as an environment variable
+gem 'dotenv-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

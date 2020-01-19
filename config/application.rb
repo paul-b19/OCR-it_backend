@@ -37,9 +37,9 @@ module OcrItBackend
     config.middleware.insert_before 0, Rack::Cors do
       allow do
           origins '*'
-          # resource '*', headers: :any, methods: [:get, :post, :put]  ## set up each resource separately !!!
-          resource 'user', headers: :any, methods: [:get, :post]
-          resource 'record', headers: :any, methods: [:get, :post, :put, :delete]
+          resource '*', headers: :any, methods: [:get, :post, :put, :delete]  ## set up each resource separately !!!
+          # resource 'user', headers: :any, methods: [:get, :post]
+          # resource 'record', headers: :any, methods: [:get, :post, :put, :delete]
       end
     end
   end

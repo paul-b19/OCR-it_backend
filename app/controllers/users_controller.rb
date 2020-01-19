@@ -15,9 +15,9 @@ class UsersController < ApplicationController
     }, :except => [:created_at, :updated_at])
   end
 
-  # POST /leaders/
+  # POST /users/
   def create
-    user = User.create!(user_params)
+    user = User.create(user_params)
     render json: user, except: [:created_at, :updated_at]
   end
 
