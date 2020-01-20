@@ -5,8 +5,8 @@ class LoginHandler
   end
 
   def check_user()
-    if @user_params[:action] === 'logIn'
-      user = User.all.where(username: @user_params[:username])[0]
+    if @user_params[:action_type] === 'logIn'
+      user = User.where(username: @user_params[:username]).take
     end
     user
   end
