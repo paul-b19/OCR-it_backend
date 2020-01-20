@@ -8,15 +8,14 @@ class RecordProcessor
   def ocr_api_post
     # Setup authorization
     CloudmersiveOcrApiClient.configure do |config|
-      # config.api_key['Apikey'] = 'e1a35af3-c80d-4a70-b63c-55cd73b8b30b'
       config.api_key['Apikey'] = ENV['PIMP_MY_APP']
     end
     
     api_instance = CloudmersiveOcrApiClient::ImageOcrApi.new
-    image_file = File.new("app/services/test.png")    # image file test
-    # image_file = File.new(@record_params[:image])    # image file
+    # image_file = File.new("app/services/test.png")    # image file test
+    image_file = File.new(@record_params[:image])
     opts = { 
-      language: "ENG" # Language of the input document, Possible values are ENG (English), BEL (Belarusian), POR (Portuguese), RUS (Russian), SPA (Spanish)
+      language: @record_params[:language] # Language of the input document, Possible values are ENG (English), BEL (Belarusian), POR (Portuguese), RUS (Russian), SPA (Spanish)
     }
     
     begin
