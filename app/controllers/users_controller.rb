@@ -17,14 +17,14 @@ class UsersController < ApplicationController
 
   # POST /users/
   def create
-    user = User.create(user_params)
+    user = LoginHandler.new(user_params).check_user
     render json: user, except: [:created_at, :updated_at]
   end
 
   private
 
   def user_params
-    params.permit(:id, :username, :password)
+    params.permit(:id, :username, :password, :action)
   end
 
 end
