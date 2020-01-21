@@ -14,7 +14,6 @@ class RecordsController < ApplicationController
 
   # POST /records/
   def create
-    # puts record_params
     record = RecordProcessor.new(record_params).ocr_api_post
     render json: record, except: [:created_at, :updated_at]
   end

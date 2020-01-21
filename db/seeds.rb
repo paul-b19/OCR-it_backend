@@ -27,11 +27,11 @@ puts 'Seeding records data'
   
   
   
-user1 = User.create(username: Faker::Name.unique.first_name, password: '123')
-user2 = User.create(username: Faker::Name.unique.first_name, password: '123')
-user3 = User.create(username: Faker::Name.unique.first_name, password: '123')
-user4 = User.create(username: Faker::Name.unique.first_name, password: '123')
-user5 = User.create(username: Faker::Name.unique.first_name, password: '123')
+user1 = User.create(username: Faker::Name.unique.first_name, password_digest: '123')
+user2 = User.create(username: Faker::Name.unique.first_name, password_digest: '123')
+user3 = User.create(username: Faker::Name.unique.first_name, password_digest: '123')
+user4 = User.create(username: Faker::Name.unique.first_name, password_digest: '123')
+user5 = User.create(username: Faker::Name.unique.first_name, password_digest: '123')
 
 groups = ['notes', 'ideas', 'stories', 'great man quotes']
 users = [user1, user2, user3, user4, user5]

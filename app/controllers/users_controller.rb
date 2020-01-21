@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   # GET /users/:id
   def show
     user = User.find(user_params[:id])
-    # render json: user, include: [:records], except: [:created_at, :updated_at]
     render json: user.to_json(:include => {
       :records => {:only => [:id, :group, :title, :body, :confidence, :user_id]}
     }, :except => [:created_at, :updated_at])
@@ -17,9 +16,21 @@ class UsersController < ApplicationController
 
   # POST /users/
   def create
-    user = LoginHandler.new(user_params).check_user
-    render json: user, except: [:created_at, :updated_at]
+    user = User.new(
+      username: user_params[:username],
+      password: user_params[:password])
+    if user.save
+      render json: user, except: [:password, :created_at, :updated_at]
+    else
+      render json: {errors: user.errors.full_messages}
+    end
+
   end
+
+  # def create
+  #   user = LoginHandler.new(user_params).check_user
+  #   render json: user, except: [:created_at, :updated_at]
+  # end
 
   private
 

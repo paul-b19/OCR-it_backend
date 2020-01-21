@@ -12,7 +12,6 @@ class RecordProcessor
     end
     
     api_instance = CloudmersiveOcrApiClient::ImageOcrApi.new
-    # image_file = File.new("app/services/test.png")    # image file test
     image_file = File.new(@record_params[:image])
     opts = { 
       language: @record_params[:language] # Language of the input document, Possible values are ENG (English), BEL (Belarusian), POR (Portuguese), RUS (Russian), SPA (Spanish)
