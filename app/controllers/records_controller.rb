@@ -1,10 +1,10 @@
 class RecordsController < ApplicationController
 
   # GET /records/
-  def index
-    records = Record.all
-    render json: records, except: [:created_at, :updated_at]
-  end
+  # def index
+  #   records = Record.all
+  #   render json: records, except: [:created_at, :updated_at]
+  # end
 
   # GET /records/:id
   def show
