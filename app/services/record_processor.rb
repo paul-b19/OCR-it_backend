@@ -34,7 +34,7 @@ class RecordProcessor
 
   def persist_record(result)
     record = Record.create(
-      group: 'Undefined',
+      group: 'Unsorted',
       title: 'Undefined',
       body: result.text_result,
       confidence: result.mean_confidence_level*100,
